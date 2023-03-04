@@ -7,3 +7,11 @@ option go_package = "github.com/rotemtam/protoc-gen-go-ascii/example";
 message Hello {
 
 }
+
+service MyService {
+	rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {}
+}
+
+message SayHelloRequest {}
+
+message SayHelloResponse {}
