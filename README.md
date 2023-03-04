@@ -4,6 +4,8 @@ An example repo showing how to build a simple protoc plugin for generating go co
 
 <https://rotemtam.com/2021/03/22/creating-a-protoc-plugin-to-gen-go-code/>
 
+Here is how I build it:
+
 ```bash
 # Install proto compilers
 brew install protobuf
@@ -16,19 +18,18 @@ protoc-gen-go --version
 
 
 # Build to program into binary "protoc-gen-go-ascii"
+cd cmd/protoc-gen-go-ascii
 go build
 
 # Run
 protoc \
-  --plugin=protoc-gen-go-ascii \
+  --plugin=cmd/protoc-gen-go-ascii/protoc-gen-go-ascii \
   --go-ascii_out=. \
   --go-ascii_opt=paths=source_relative \
   --go_out=. \
   --go_opt=paths=source_relative \
   --proto_path=. \
   example/example.proto
-
-# --go-ascii_out: protoc-gen-go-ascii: Plugin output is unparseable:
-# going to print example.Hello\'s ASCII art representation:
-# \n _   _        _  _\n| | | |      | || |\n| |_| |  ___ | || |  ___\n|  _  | / _ \\| || | / _ \\\n| | | ||  __/| || || (_) |\n\\_| |_/ \\___||_||_| \\___/\n\n
 ```
+
+There is probably a better solution.
