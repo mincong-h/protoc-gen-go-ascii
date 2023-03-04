@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package example;
+
+option go_package = "github.com/rotemtam/protoc-gen-go-ascii/example";
+
+service AnotherService {
+	rpc SayGoodbye(SayGoodbyeRequest) returns (SayGoodbyeResponse) {}
+}
+
+message SayGoodbyeRequest {}
+
+message SayGoodbyeResponse {}
