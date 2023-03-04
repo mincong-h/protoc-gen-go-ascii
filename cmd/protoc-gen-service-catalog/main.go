@@ -30,6 +30,8 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) *protogen.Generated
 			methods = append(methods, method.GoName)
 		}
 	}
+	// We cannot do this, it triggers an error:
+	// "Tried to write the same file twice."
 	filename := "SERIVCE.md"
 
 	g := gen.NewGeneratedFile(filename, file.GoImportPath)
